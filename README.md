@@ -38,6 +38,8 @@ Additionally, based on the Excel data, users can convert videos using `Nuke` API
 
 - Other functionalities are currently not implemented.
 
+- In the publishing process, for the converting step, I did not separate it into a other thread, keeping in mind that it operates on a render farm.
+
 ## Installation
 
 #### You must be prepared for [Shotgrid](https://shotgrid.autodesk.com/)  and Advanced Project Settings in Shotgrid Desktop App to use `tk-desktop-iomanager`!
