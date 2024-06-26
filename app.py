@@ -21,8 +21,11 @@ sys.path.append('/RAPA/rez/src')
 
 try:
     from rez.resolved_context import ResolvedContext
+    use_rez = True
 except ImportError:
-    traceback.print_exc()
+    print("Rez not found. Run without Rez.")
+    use_rez = False
+    pass
 
 class IO_Manager(Application):
     """
@@ -35,9 +38,10 @@ class IO_Manager(Application):
         Called as the application is being initialized
         """ 
         try:
-            self.append_rez_env(
-                ["openpyxl", "openpyxl_image_loader", "ocio2"]
-                )
+            if use_rez:
+                self.append_rez_env(
+                    ["openpyxl", "openpyxl_image_loader", "ocio2"]
+                    )
             tk_desktop_iomanager = self.import_module("app")
 
             menu_callback = lambda: tk_desktop_iomanager.dialog.show_dialog(self)

@@ -29,5 +29,4 @@ def cleanup_temp_files(completed_converters: list, cliplib: bool) -> None:
         os.remove(completed_converter)
         
     if cliplib:
-        print("This function is not implemented yet.")
         logger.info("This function is not implemented yet.")

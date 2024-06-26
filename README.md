@@ -46,7 +46,7 @@ The official [ShotGrid Developer Help Center](https://help.autodesk.com/view/SGD
 
 To utilize the `openpyxl` and `openpyxl-image-loader` modules and the `OCIO` environment variables, a `Rez` package is required.
 
-**If `Rez` is not being used**, you will need to **install these modules** and **set the `OCIO` environment variables**, then **modify `app.py`** accordingly.
+**If `Rez` is not being used**, you will need to **install these modules** and **set the `OCIO` environment variables**.
 
 ```sh
 pip install openpyxl
@@ -95,11 +95,36 @@ settings.tk-desktop.project:
 ./tank cache_apps
 ```
 
-#### If the app is successfully recognized, you will see the tk-desktop-iomanager icon in the ShotGrid Desktop App.
+If the app is successfully recognized, you will see the tk-desktop-iomanager icon in the ShotGrid Desktop App.
 <p align="center">
   <img src="./resource/sg_desktop.png" alt="ShotGrid Desktop App Icon" />
 </p>
 
+#### 5. Finally, modify `constants.py` according to the environment you are using. 
+
+Be mindful that the value of colorspace may vary depending on the `OCIO` version in use.
+```python
+# constants.py
+
+NUKE_PATH = "/usr/local/Nuke15.1v1/Nuke15.1"
+
+CODECS = {
+    "Apple ProRes 4444": "ap4h",
+    "Apple ProRes 422 HQ": "apch",
+    "Apple ProRes 422": "apcn",
+    "Apple ProRes 422 LT": "apcs",
+    "Apple ProRes 422 Proxy": "apco",
+    "Avid DNxHD 444": "AVdn",
+    "Avid DNxHD 422": "AVdn",
+    "Avid DnxHR 422": "AVdh"
+    }
+
+COLORSPACE = {
+    "ACES - ACEScg": "Linear Rec.709 (sRGB)",
+    "ACES - ACES2065-1": "Linear Rec.709 (sRGB)",
+    "Linear Rec.709 (sRGB)": "Linear Rec.709 (sRGB)",
+}
+```
 
 ## Contributing
 Welcome contributions to tk-desktop-iomanager.
