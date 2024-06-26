@@ -1,0 +1,10 @@
+# python
+__pycache__
+*.pyc
+
+# temp files
+.temp_images
+
+# code
+.vscode
+
