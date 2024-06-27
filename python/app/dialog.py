@@ -12,6 +12,7 @@ __github__ = "https://github.com/junopark00"
 import os
 import sys
 import shutil
+import importlib
 from collections import defaultdict
 
 import sgtk
@@ -27,6 +28,17 @@ from .validate_shot_for_editorial import ValidateShotForEditorial
 from .collect import Collect
 from .publish import Publish
 from . import cleanup
+
+importlib.reload(Ui_Dialog)
+importlib.reload(ExcelManager)
+importlib.reload(GenerateConverter)
+importlib.reload(ValidateVersion)
+importlib.reload(ValidateSrcVersion)
+importlib.reload(ValidateTimecode)
+importlib.reload(ValidateShotForEditorial)
+importlib.reload(Collect)
+importlib.reload(Publish)
+importlib.reload(cleanup)
 
 
 # Set standard sgtk logger
